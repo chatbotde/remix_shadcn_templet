@@ -1,53 +1,96 @@
 import type { MetaFunction } from "@remix-run/node";
+import { Signup } from "~/components/sign-up";
+import { login as LoginComponent } from "~/components/login-dialog";
+import { LogoutDialog } from "~/components/logout-dialog";
+import { Button } from "~/components/ui/button";
+import { useState } from "react";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
+    { title: "Sonicthinking" },
+    { name: "description", content: "Welcome to sonicthinking" },
   ];
 };
 
 export default function Index() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  const handleLogin = () => {
+    setIsAuthenticated(true);
+  };
+
+  const handleSignup = () => {
+    setIsAuthenticated(true);
+  };
+
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+  };
+
   return (
-    <div className="flex h-screen items-center justify-center">
-      <div className="flex flex-col items-center gap-16">
-        <header className="flex flex-col items-center gap-9">
-          <h1 className="leading text-2xl font-bold text-gray-800 dark:text-gray-100">
-            Welcome to <span className="sr-only">Remix</span>
-          </h1>
-          <div className="h-[144px] w-[434px]">
-            <img
-              src="/logo-light.png"
-              alt="Remix"
-              className="block w-full dark:hidden"
-            />
-            <img
-              src="/logo-dark.png"
-              alt="Remix"
-              className="hidden w-full dark:block"
-            />
-          </div>
-        </header>
-        <nav className="flex flex-col items-center justify-center gap-4 rounded-3xl border border-gray-200 p-6 dark:border-gray-700">
-          <p className="leading-6 text-gray-700 dark:text-gray-200">
-            What&apos;s next?
-          </p>
-          <ul>
-            {resources.map(({ href, text, icon }) => (
-              <li key={href}>
-                <a
-                  className="group flex items-center gap-3 self-stretch p-3 leading-normal text-blue-700 hover:underline dark:text-blue-500"
-                  href={href}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {icon}
-                  {text}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
+    <div className="flex h-screen flex-col">
+      {/* Header with auth buttons */}
+      <header className="fixed top-0 left-0 right-0 z-20 flex items-center justify-between border-b bg-background p-4">
+        <span className="text-lg font-bold">Sonicthinking</span>
+        <div className="flex items-center gap-2">
+          {!isAuthenticated ? (
+            <>
+              <LoginComponent onLogin={handleLogin} />
+              <Signup onSignup={handleSignup} />
+            </>
+          ) : (
+            <>
+              <span className="mr-2 text-sm text-muted-foreground">
+                Welcome back!
+              </span>
+              <LogoutDialog onLogout={handleLogout} />
+            </>
+          )}
+        </div>
+      </header>
+
+      {/* Main content */}
+      <div className="flex flex-1 items-center justify-center pt-20">
+        <div className="flex flex-col items-center gap-16">
+          <header className="flex flex-col items-center gap-9">
+            <h1 className="leading text-2xl font-bold text-gray-800 dark:text-gray-100">
+              Welcome to <span className="sr-only">Remix</span>
+            </h1>
+            <div className="h-[144px] w-[434px]">
+              <img
+                src="/logo-light.png"
+                alt="Remix"
+                className="block w-full dark:hidden"
+              />
+              <img
+                src="/logo-dark.png"
+                alt="Remix"
+                className="hidden w-full dark:block"
+              />
+            </div>
+            
+          </header>
+          <nav className="flex flex-col items-center justify-center gap-4 rounded-3xl border border-gray-200 p-6 dark:border-gray-700">
+            <p className="leading-6 text-gray-700 dark:text-gray-200">
+              What&apos;s next?
+            </p>
+            <ul>
+              {resources.map(({ href, text, icon }) => (
+                <li key={href}>
+                  <a
+                    className="group flex items-center gap-3 self-stretch p-3 leading-normal text-blue-700 hover:underline dark:text-blue-500"
+                    href={href}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {icon}
+                    {text}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
       </div>
     </div>
   );

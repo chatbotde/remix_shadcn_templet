@@ -1,5 +1,6 @@
 import {
   Links,
+  LiveReload,
   Meta,
   Outlet,
   Scripts,
@@ -11,8 +12,10 @@ import { cssBundleHref } from "@remix-run/css-bundle";
 import clsx from "clsx";
 import { PreventFlashOnWrongTheme, ThemeProvider, useTheme } from "remix-themes";
 
+import Header from "~/components/header";
 import styles from "./tailwind.css?url";
 import { themeSessionResolver } from "./sessions.server";
+
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: styles },
@@ -68,9 +71,11 @@ export function App() {
         <Links />
       </head>
       <body>
+        <Header />
         <Outlet />
         <ScrollRestoration />
         <Scripts />
+        <LiveReload />
       </body>
     </html>
   );
