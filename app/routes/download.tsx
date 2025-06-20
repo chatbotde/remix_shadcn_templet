@@ -10,13 +10,16 @@ import {
   Clock, 
   Star,
   ArrowRight,
-  Sparkles
+  Sparkles,
+  Monitor,
+  Laptop,
+  Server
 } from "lucide-react";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Download - Buddy App" },
-    { name: "description", content: "Download Buddy App - Your AI assistant for laptop. Available for Windows, macOS, and Linux." },
+    { title: "Download - Buddy" },
+    { name: "description", content: "Download Buddy - Your extraordinarily productive digital assistant. Available for Windows, macOS, and Linux." },
   ];
 };
 
@@ -27,9 +30,15 @@ export default function Download() {
       version: "v2.1.0",
       size: "45.2 MB",
       description: "For Windows 10 and 11",
-      icon: "🪟",
+      icon: Monitor,
       downloadUrl: "#",
       requirements: "Windows 10 (64-bit) or later",
+      features: [
+        "Native Windows integration",
+        "System tray support",
+        "Windows shortcuts",
+        "DirectX acceleration"
+      ],
       popular: true
     },
     {
@@ -37,18 +46,30 @@ export default function Download() {
       version: "v2.1.0",
       size: "52.8 MB",
       description: "For macOS 11.0 and later",
-      icon: "🍎",
+      icon: Laptop,
       downloadUrl: "#",
-      requirements: "macOS 11.0 (Big Sur) or later"
+      requirements: "macOS 11.0 (Big Sur) or later",
+      features: [
+        "macOS native design",
+        "Menu bar integration",
+        "Touch Bar support",
+        "Metal acceleration"
+      ]
     },
     {
       name: "Linux",
       version: "v2.1.0",
       size: "38.5 MB",
       description: "For Ubuntu, Fedora, and more",
-      icon: "🐧",
+      icon: Server,
       downloadUrl: "#",
-      requirements: "Ubuntu 20.04+, Fedora 34+, or compatible"
+      requirements: "Ubuntu 20.04+, Fedora 34+, or compatible",
+      features: [
+        "Cross-distribution support",
+        "Terminal integration",
+        "Package manager support",
+        "Open source friendly"
+      ]
     }
   ];
 
@@ -65,7 +86,7 @@ export default function Download() {
     },
     {
       icon: Clock,
-      title: "Always Available",
+      title: "Always Ready",
       description: "24/7 AI assistance at your fingertips"
     },
     {
@@ -76,56 +97,71 @@ export default function Download() {
   ];
 
   return (
-    <div className="flex min-h-screen flex-col pt-20">
+    <div className="flex min-h-screen flex-col pt-20 bg-white dark:bg-black">
       <div className="container mx-auto px-4 py-8">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <Badge variant="secondary" className="mb-4">
+          <Badge variant="secondary" className="mb-4 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100">
             <Sparkles className="w-3 h-3 mr-1" />
-            Download Your AI Buddy
+            Download Your Digital Assistant
           </Badge>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
-            Get Buddy App
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-black dark:text-white">
+            Get Buddy
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Download your intelligent AI assistant and start having meaningful conversations, generating ideas, and getting help with your work.
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+            Download your extraordinarily productive digital assistant and start having meaningful conversations, generating ideas, and getting help with your work.
           </p>
         </div>
         
         {/* Platform Downloads */}
         <div className="mb-16">
-          <h2 className="text-3xl font-bold text-center mb-12">Choose Your Platform</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12 text-black dark:text-white">Choose Your Platform</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {platforms.map((platform, index) => (
               <Card 
                 key={index} 
-                className={`relative text-center hover:shadow-xl transition-all duration-300 border-0 shadow-lg ${
-                  platform.popular ? 'scale-105 border-2 border-blue-500' : ''
+                className={`relative text-center hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700 shadow-lg bg-white dark:bg-black ${
+                  platform.popular ? 'scale-105 border-2 border-black dark:border-white' : ''
                 }`}
               >
                 {platform.popular && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                    <Badge className="bg-blue-500 text-white px-3 py-1">
+                    <Badge className="bg-black dark:bg-white text-white dark:text-black px-3 py-1">
                       Most Popular
                     </Badge>
                   </div>
                 )}
                 <CardHeader>
-                  <div className="text-6xl mb-4">{platform.icon}</div>
-                  <CardTitle className="text-2xl">{platform.name}</CardTitle>
-                  <CardDescription className="text-lg">{platform.description}</CardDescription>
+                  <div className="w-16 h-16 rounded-lg bg-black dark:bg-white flex items-center justify-center mx-auto mb-4">
+                    <platform.icon className="h-8 w-8 text-white dark:text-black" />
+                  </div>
+                  <CardTitle className="text-2xl text-black dark:text-white">{platform.name}</CardTitle>
+                  <CardDescription className="text-lg text-gray-600 dark:text-gray-400">{platform.description}</CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="text-sm text-muted-foreground space-y-1">
+                <CardContent className="space-y-6">
+                  <div className="text-sm text-gray-500 dark:text-gray-400 space-y-1">
                     <p>Version: {platform.version}</p>
                     <p>Size: {platform.size}</p>
                     <p className="mt-2">{platform.requirements}</p>
                   </div>
+                  
+                  <div className="text-left">
+                    <h4 className="font-semibold text-sm text-black dark:text-white mb-2">Key Features:</h4>
+                    <ul className="space-y-1 text-xs text-gray-600 dark:text-gray-400">
+                      {platform.features.map((feature, featureIndex) => (
+                        <li key={featureIndex} className="flex items-center gap-2">
+                          <CheckCircle className="h-3 w-3 text-black dark:text-white" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  
                   <Button 
                     className={`w-full text-lg py-6 ${
                       platform.popular 
-                        ? 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700' 
-                        : ''
+                        ? 'bg-black dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200' 
+                        : 'bg-white dark:bg-black text-black dark:text-white border border-black dark:border-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black'
                     }`}
                     size="lg"
                   >
@@ -140,18 +176,18 @@ export default function Download() {
 
         {/* Benefits Section */}
         <div className="mb-16">
-          <h2 className="text-3xl font-bold text-center mb-12">Why Choose Buddy?</h2>
+          <h2 className="text-3xl font-bold text-center mb-12 text-black dark:text-white">Why Choose Buddy?</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {benefits.map((benefit, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-shadow border-0 shadow-md">
+              <Card key={index} className="text-center hover:shadow-lg transition-shadow border border-gray-200 dark:border-gray-700 shadow-md bg-white dark:bg-black">
                 <CardHeader>
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center mx-auto mb-4">
-                    <benefit.icon className="h-6 w-6 text-white" />
+                  <div className="w-12 h-12 rounded-lg bg-black dark:bg-white flex items-center justify-center mx-auto mb-4">
+                    <benefit.icon className="h-6 w-6 text-white dark:text-black" />
                   </div>
-                  <CardTitle className="text-lg">{benefit.title}</CardTitle>
+                  <CardTitle className="text-lg text-black dark:text-white">{benefit.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-sm">
+                  <CardDescription className="text-sm text-gray-600 dark:text-gray-400">
                     {benefit.description}
                   </CardDescription>
                 </CardContent>
@@ -162,17 +198,17 @@ export default function Download() {
 
         {/* System Requirements */}
         <div className="mb-16">
-          <h2 className="text-3xl font-bold text-center mb-12">System Requirements</h2>
+          <h2 className="text-3xl font-bold text-center mb-12 text-black dark:text-white">System Requirements</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <Card className="border-0 shadow-lg">
+            <Card className="border border-gray-200 dark:border-gray-700 shadow-lg bg-white dark:bg-black">
               <CardHeader>
-                <CardTitle className="text-xl flex items-center gap-2">
-                  <CheckCircle className="h-5 w-5 text-green-500" />
+                <CardTitle className="text-xl flex items-center gap-2 text-black dark:text-white">
+                  <CheckCircle className="h-5 w-5 text-black dark:text-white" />
                   Minimum Requirements
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-2 text-sm text-muted-foreground">
+                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
                   <li>• 4GB RAM</li>
                   <li>• 2GB free disk space</li>
                   <li>• 1.5GHz dual-core processor</li>
@@ -182,15 +218,15 @@ export default function Download() {
               </CardContent>
             </Card>
             
-            <Card className="border-0 shadow-lg">
+            <Card className="border border-gray-200 dark:border-gray-700 shadow-lg bg-white dark:bg-black">
               <CardHeader>
-                <CardTitle className="text-xl flex items-center gap-2">
-                  <Zap className="h-5 w-5 text-yellow-500" />
+                <CardTitle className="text-xl flex items-center gap-2 text-black dark:text-white">
+                  <Zap className="h-5 w-5 text-black dark:text-white" />
                   Recommended
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-2 text-sm text-muted-foreground">
+                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
                   <li>• 8GB RAM</li>
                   <li>• 5GB free disk space</li>
                   <li>• 2.5GHz quad-core processor</li>
@@ -200,15 +236,15 @@ export default function Download() {
               </CardContent>
             </Card>
             
-            <Card className="border-0 shadow-lg">
+            <Card className="border border-gray-200 dark:border-gray-700 shadow-lg bg-white dark:bg-black">
               <CardHeader>
-                <CardTitle className="text-xl flex items-center gap-2">
-                  <Shield className="h-5 w-5 text-blue-500" />
+                <CardTitle className="text-xl flex items-center gap-2 text-black dark:text-white">
+                  <Shield className="h-5 w-5 text-black dark:text-white" />
                   Security & Privacy
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-2 text-sm text-muted-foreground">
+                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
                   <li>• Local AI processing</li>
                   <li>• End-to-end encryption</li>
                   <li>• No data collection</li>
@@ -222,23 +258,23 @@ export default function Download() {
 
         {/* CTA Section */}
         <div className="text-center">
-          <Card className="border-0 shadow-xl bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950">
+          <Card className="border border-gray-200 dark:border-gray-700 shadow-xl bg-gray-50 dark:bg-gray-900">
             <CardContent className="pt-8">
-              <h3 className="text-2xl font-bold mb-4">Ready to Meet Your AI Buddy?</h3>
-              <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+              <h3 className="text-2xl font-bold mb-4 text-black dark:text-white">Ready to be Extraordinarily Productive?</h3>
+              <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-2xl mx-auto">
                 Join thousands of users who have already transformed their productivity with intelligent AI assistance.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-lg px-8 py-6">
+                <Button size="lg" className="bg-black dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 text-lg px-8 py-6">
                   <DownloadIcon className="mr-2 h-5 w-5" />
                   Download Now
                 </Button>
-                <Button variant="outline" size="lg" className="text-lg px-8 py-6">
+                <Button variant="outline" size="lg" className="text-lg px-8 py-6 border-black dark:border-white text-black dark:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black">
                   Learn More
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </div>
-              <p className="text-sm text-muted-foreground mt-4">
+              <p className="text-sm text-gray-500 dark:text-gray-400 mt-4">
                 Free download • No credit card required • Works offline
               </p>
             </CardContent>

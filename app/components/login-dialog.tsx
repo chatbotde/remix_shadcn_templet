@@ -25,9 +25,9 @@ function Login({ onLogin }: { onLogin: () => void }) {
       <DialogTrigger asChild>
         <Button 
           variant="outline" 
-          className="rounded-full px-6 font-medium text-sm bg-background hover:bg-accent hover:text-accent-foreground"
+          className="rounded-full px-6 font-medium text-sm bg-background hover:bg-accent text-accent-foreground hover:text-accent-foreground dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-white dark:hover:text-white"
         >
-          Sign in
+          Login
         </Button>
       </DialogTrigger>
       <DialogContent className="border-slate-200 bg-white p-6 shadow-lg dark:border-slate-800 dark:bg-slate-900 sm:max-w-[400px]">

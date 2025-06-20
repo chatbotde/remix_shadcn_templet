@@ -22,8 +22,8 @@ import {
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Features - Buddy App" },
-    { name: "description", content: "Discover the powerful AI features of Buddy App - your intelligent desktop assistant" },
+    { title: "Features - Buddy" },
+    { name: "description", content: "Discover the powerful features of Buddy - your extraordinarily productive digital assistant" },
   ];
 };
 
@@ -32,44 +32,32 @@ export default function Features() {
     {
       title: "Natural Language Processing",
       description: "Have conversations with Buddy using natural language. Ask questions, request help, or just chat about your day.",
-      icon: MessageSquare,
-      color: "text-blue-500",
-      bgColor: "bg-blue-50 dark:bg-blue-950"
+      icon: MessageSquare
     },
     {
       title: "Context Awareness",
       description: "Buddy understands what you're working on and provides relevant assistance based on your current tasks and applications.",
-      icon: Eye,
-      color: "text-green-500",
-      bgColor: "bg-green-50 dark:bg-green-950"
+      icon: Eye
     },
     {
       title: "Idea Generation",
       description: "Get creative ideas, brainstorming help, and innovative solutions for any project or problem you're facing.",
-      icon: Lightbulb,
-      color: "text-yellow-500",
-      bgColor: "bg-yellow-50 dark:bg-yellow-950"
+      icon: Lightbulb
     },
     {
       title: "Real-time Assistance",
       description: "Get instant responses and help without waiting. Buddy works seamlessly in the background of your workflow.",
-      icon: Zap,
-      color: "text-purple-500",
-      bgColor: "bg-purple-50 dark:bg-purple-950"
+      icon: Zap
     },
     {
       title: "Privacy & Security",
       description: "Your conversations and data stay private and secure with end-to-end encryption and local processing.",
-      icon: Shield,
-      color: "text-red-500",
-      bgColor: "bg-red-50 dark:bg-red-950"
+      icon: Shield
     },
     {
       title: "24/7 Availability",
       description: "Access Buddy anytime, day or night. No more waiting for human support or office hours.",
-      icon: Clock,
-      color: "text-indigo-500",
-      bgColor: "bg-indigo-50 dark:bg-indigo-950"
+      icon: Clock
     }
   ];
 
@@ -124,37 +112,37 @@ export default function Features() {
   ];
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col bg-white dark:bg-black">
       <div className="flex-grow">
         <div className="container mx-auto px-4 py-8">
           {/* Hero Section */}
           <div className="text-center mb-12 md:mb-16">
-            <Badge variant="secondary" className="mb-4">
+            <Badge variant="secondary" className="mb-4 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100">
               <Sparkles className="w-3 h-3 mr-1" />
-              AI-Powered Features
+              Powerful Features
             </Badge>
-            <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
-              Powerful AI Features
+            <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold mb-4 md:mb-6 text-black dark:text-white">
+              Extraordinarily Productive
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-4">
-              Experience the future of desktop assistance with AI that truly understands your needs and helps you work smarter, not harder.
+            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto px-4">
+              Experience the future of digital assistance with features that truly understand your needs and help you work smarter, not harder.
             </p>
           </div>
           
           {/* Core Features */}
           <div className="mb-16 md:mb-20">
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12">Core Capabilities</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-black dark:text-white">Core Capabilities</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {coreFeatures.map((feature, index) => (
-                <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg">
+                <Card key={index} className="group hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700 shadow-lg bg-white dark:bg-black">
                   <CardHeader>
-                    <div className={`w-12 h-12 md:w-14 md:h-14 rounded-xl ${feature.bgColor} flex items-center justify-center mb-4`}>
-                      <feature.icon className={`h-6 w-6 md:h-7 md:w-7 ${feature.color}`} />
+                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-black dark:bg-white flex items-center justify-center mb-4">
+                      <feature.icon className="h-6 w-6 md:h-7 md:w-7 text-white dark:text-black" />
                     </div>
-                    <CardTitle className="text-lg md:text-xl">{feature.title}</CardTitle>
+                    <CardTitle className="text-lg md:text-xl text-black dark:text-white">{feature.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <CardDescription className="text-sm md:text-base leading-relaxed">
+                    <CardDescription className="text-sm md:text-base leading-relaxed text-gray-600 dark:text-gray-400">
                       {feature.description}
                     </CardDescription>
                   </CardContent>
@@ -165,18 +153,18 @@ export default function Features() {
 
           {/* Advanced Features */}
           <div className="mb-16 md:mb-20">
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12">Advanced Capabilities</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-black dark:text-white">Advanced Capabilities</h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
               {advancedFeatures.map((feature, index) => (
-                <Card key={index} className="hover:shadow-lg transition-shadow border-0 shadow-md">
+                <Card key={index} className="hover:shadow-lg transition-shadow border border-gray-200 dark:border-gray-700 shadow-md bg-white dark:bg-black">
                   <CardHeader>
                     <div className="flex items-center gap-3 md:gap-4 mb-4">
-                      <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600">
-                        <feature.icon className="h-5 w-5 md:h-6 md:w-6 text-white" />
+                      <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-black dark:bg-white flex items-center justify-center">
+                        <feature.icon className="h-5 w-5 md:h-6 md:w-6 text-white dark:text-black" />
                       </div>
                       <div>
-                        <CardTitle className="text-lg md:text-xl">{feature.title}</CardTitle>
-                        <CardDescription className="text-sm md:text-base mt-1">
+                        <CardTitle className="text-lg md:text-xl text-black dark:text-white">{feature.title}</CardTitle>
+                        <CardDescription className="text-sm md:text-base mt-1 text-gray-600 dark:text-gray-400">
                           {feature.description}
                         </CardDescription>
                       </div>
@@ -185,8 +173,8 @@ export default function Features() {
                   <CardContent>
                     <ul className="space-y-2">
                       {feature.features.map((item, itemIndex) => (
-                        <li key={itemIndex} className="flex items-center gap-2 text-xs md:text-sm">
-                          <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                        <li key={itemIndex} className="flex items-center gap-2 text-xs md:text-sm text-gray-600 dark:text-gray-400">
+                          <div className="w-1.5 h-1.5 rounded-full bg-black dark:bg-white" />
                           {item}
                         </li>
                       ))}
@@ -199,18 +187,18 @@ export default function Features() {
 
           {/* Technical Specifications */}
           <div className="mb-16 md:mb-20">
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12">Technical Excellence</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-black dark:text-white">Technical Excellence</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
               {technicalSpecs.map((spec, index) => (
-                <Card key={index} className="text-center hover:shadow-lg transition-shadow border-0 shadow-md">
+                <Card key={index} className="text-center hover:shadow-lg transition-shadow border border-gray-200 dark:border-gray-700 shadow-md bg-white dark:bg-black">
                   <CardHeader>
-                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-gradient-to-br from-green-500 to-blue-600">
-                      <spec.icon className="h-5 w-5 md:h-6 md:w-6 text-white" />
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-black dark:bg-white flex items-center justify-center mx-auto">
+                      <spec.icon className="h-5 w-5 md:h-6 md:w-6 text-white dark:text-black" />
                     </div>
-                    <CardTitle className="text-base md:text-lg">{spec.title}</CardTitle>
+                    <CardTitle className="text-base md:text-lg text-black dark:text-white">{spec.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <CardDescription className="text-xs md:text-sm">
+                    <CardDescription className="text-xs md:text-sm text-gray-600 dark:text-gray-400">
                       {spec.description}
                     </CardDescription>
                   </CardContent>
@@ -221,20 +209,20 @@ export default function Features() {
 
           {/* CTA Section */}
           <div className="text-center">
-            <Card className="border-0 shadow-xl bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950">
+            <Card className="border border-gray-200 dark:border-gray-700 shadow-xl bg-gray-50 dark:bg-gray-900">
               <CardContent className="pt-6 md:pt-8 px-4 md:px-8">
-                <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4">Ready to Experience AI Assistance?</h3>
-                <p className="text-muted-foreground mb-4 md:mb-6 max-w-2xl mx-auto text-sm md:text-base">
-                  Download Buddy App today and discover how AI can transform your productivity and creativity.
+                <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-black dark:text-white">Ready to be Extraordinarily Productive?</h3>
+                <p className="text-gray-600 dark:text-gray-400 mb-4 md:mb-6 max-w-2xl mx-auto text-sm md:text-base">
+                  Download Buddy today and discover how AI can transform your productivity and creativity.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
                   <a href="/download" className="inline-flex w-full sm:w-auto">
-                    <button className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 md:px-8 py-3 md:py-3 rounded-lg font-medium hover:from-blue-700 hover:to-purple-700 transition-all text-sm md:text-base">
+                    <button className="w-full sm:w-auto bg-black dark:bg-white text-white dark:text-black px-6 md:px-8 py-3 md:py-3 rounded-lg font-medium hover:bg-gray-800 dark:hover:bg-gray-200 transition-all text-sm md:text-base">
                       Download Now
                     </button>
                   </a>
                   <a href="/pricing" className="inline-flex w-full sm:w-auto">
-                    <button className="w-full sm:w-auto border border-blue-600 text-blue-600 px-6 md:px-8 py-3 md:py-3 rounded-lg font-medium hover:bg-blue-50 dark:hover:bg-blue-950 transition-all text-sm md:text-base">
+                    <button className="w-full sm:w-auto border border-black dark:border-white text-black dark:text-white px-6 md:px-8 py-3 md:py-3 rounded-lg font-medium hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all text-sm md:text-base">
                       View Pricing
                     </button>
                   </a>

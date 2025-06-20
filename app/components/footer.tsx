@@ -49,18 +49,18 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="border-t bg-background">
+    <footer className="border-t bg-background bg-neutral-900">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
           {Object.values(footerLinks).map((section) => (
             <div key={section.title}>
-              <h3 className="font-semibold mb-3 text-sm">{section.title}</h3>
+              <h3 className="font-semibold mb-3 text-sm text-white">{section.title}</h3>
               <ul className="space-y-2">
                 {section.links.map((link) => (
                   <li key={link.name}>
                     <Link
                       to={link.href}
-                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                      className="text-sm text-white hover:text-white transition-colors"
                     >
                       {link.name}
                     </Link>
@@ -79,7 +79,7 @@ export function Footer() {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-muted-foreground hover:text-foreground transition-colors"
+                  className="text-white hover:text-white transition-colors"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -91,7 +91,7 @@ export function Footer() {
           </div>
           
           <div className="flex items-center space-x-4">
-            <span className="text-sm text-muted-foreground">
+            <span className="text-sm text-white">
               © 2024 Made by Anysphere. All rights reserved.
             </span>
             <span className="text-sm px-2 py-1 rounded-full bg-secondary text-secondary-foreground">
