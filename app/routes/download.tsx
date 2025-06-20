@@ -30,7 +30,7 @@ export default function Download() {
       version: "v2.1.0",
       size: "45.2 MB",
       description: "For Windows 10 and 11",
-      icon: Monitor,
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Windows_logo_-_2012.svg/2048px-Windows_logo_-_2012.svg.png",
       downloadUrl: "#",
       requirements: "Windows 10 (64-bit) or later",
       features: [
@@ -46,7 +46,7 @@ export default function Download() {
       version: "v2.1.0",
       size: "52.8 MB",
       description: "For macOS 11.0 and later",
-      icon: Laptop,
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/1667px-Apple_logo_black.svg.png",
       downloadUrl: "#",
       requirements: "macOS 11.0 (Big Sur) or later",
       features: [
@@ -61,7 +61,7 @@ export default function Download() {
       version: "v2.1.0",
       size: "38.5 MB",
       description: "For Ubuntu, Fedora, and more",
-      icon: Server,
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Tux.svg/800px-Tux.svg.png",
       downloadUrl: "#",
       requirements: "Ubuntu 20.04+, Fedora 34+, or compatible",
       features: [
@@ -120,20 +120,15 @@ export default function Download() {
             {platforms.map((platform, index) => (
               <Card 
                 key={index} 
-                className={`relative text-center hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700 shadow-lg bg-white dark:bg-black ${
-                  platform.popular ? 'scale-105 border-2 border-black dark:border-white' : ''
-                }`}
+                className="relative text-center hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700 shadow-lg bg-white dark:bg-black"
               >
-                {platform.popular && (
-                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                    <Badge className="bg-black dark:bg-white text-white dark:text-black px-3 py-1">
-                      Most Popular
-                    </Badge>
-                  </div>
-                )}
                 <CardHeader>
-                  <div className="w-16 h-16 rounded-lg bg-black dark:bg-white flex items-center justify-center mx-auto mb-4">
-                    <platform.icon className="h-8 w-8 text-white dark:text-black" />
+                  <div className="w-16 h-16 rounded-lg bg-white dark:bg-white flex items-center justify-center mx-auto mb-4 p-2">
+                    <img 
+                      src={platform.logo} 
+                      alt={`${platform.name} logo`}
+                      className="h-10 w-10 object-contain"
+                    />
                   </div>
                   <CardTitle className="text-2xl text-black dark:text-white">{platform.name}</CardTitle>
                   <CardDescription className="text-lg text-gray-600 dark:text-gray-400">{platform.description}</CardDescription>
@@ -158,11 +153,7 @@ export default function Download() {
                   </div>
                   
                   <Button 
-                    className={`w-full text-lg py-6 ${
-                      platform.popular 
-                        ? 'bg-black dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200' 
-                        : 'bg-white dark:bg-black text-black dark:text-white border border-black dark:border-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black'
-                    }`}
+                    className="w-full text-lg py-6 bg-white dark:bg-black text-black dark:text-white border border-black dark:border-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black"
                     size="lg"
                   >
                     <DownloadIcon className="mr-2 h-5 w-5" />
