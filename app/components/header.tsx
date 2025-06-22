@@ -28,7 +28,7 @@ export default function Header() {
     { to: "/features", text: "Features" },
     { to: "/enterprise", text: "Enterprise" },
     { to: "/download", text: "download" },
-    { to: "/docs", text: "docs" },
+    
     
   ];
 

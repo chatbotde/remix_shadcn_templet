@@ -4,20 +4,16 @@ import { Badge } from "~/components/ui/badge";
 import { Footer } from "~/components/footer";
 import { 
   MessageSquare, 
-  Brain, 
   Sparkles, 
   Zap, 
   Shield, 
   Clock, 
   Eye, 
   Cpu,
-  FileText,
-  Code,
-  Lightbulb,
-  Target,
   Users,
   Globe,
-  Lock
+  Lock,
+  Lightbulb
 } from "lucide-react";
 
 export const meta: MetaFunction = () => {
@@ -61,33 +57,6 @@ export default function Features() {
     }
   ];
 
-  const advancedFeatures = [
-    {
-      title: "Code Assistance",
-      description: "Get help with programming, debugging, code reviews, and learning new technologies.",
-      icon: Code,
-      features: ["Syntax highlighting", "Error detection", "Best practices", "Code explanations"]
-    },
-    {
-      title: "Content Creation",
-      description: "Write better content with AI-powered suggestions, editing, and creative assistance.",
-      icon: FileText,
-      features: ["Writing assistance", "Grammar checking", "Style suggestions", "Content ideas"]
-    },
-    {
-      title: "Problem Solving",
-      description: "Break down complex problems and find innovative solutions with structured thinking.",
-      icon: Target,
-      features: ["Step-by-step analysis", "Multiple approaches", "Solution validation", "Learning insights"]
-    },
-    {
-      title: "Learning & Research",
-      description: "Learn new concepts, research topics, and get detailed explanations on any subject.",
-      icon: Brain,
-      features: ["Concept explanations", "Research assistance", "Study guides", "Knowledge synthesis"]
-    }
-  ];
-
   const technicalSpecs = [
     {
       title: "Local Processing",
@@ -114,7 +83,7 @@ export default function Features() {
   return (
     <div className="flex min-h-screen flex-col bg-white dark:bg-black">
       <div className="flex-grow">
-        <div className="container mx-auto px-4 py-8">
+        <div className="container mx-auto px-4 py-8 pt-40">
           {/* Hero Section */}
           <div className="text-center mb-12 md:mb-16">
             <Badge variant="secondary" className="mb-4 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100">
@@ -145,40 +114,6 @@ export default function Features() {
                     <CardDescription className="text-sm md:text-base leading-relaxed text-gray-600 dark:text-gray-400">
                       {feature.description}
                     </CardDescription>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-
-          {/* Advanced Features */}
-          <div className="mb-16 md:mb-20">
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-black dark:text-white">Advanced Capabilities</h2>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
-              {advancedFeatures.map((feature, index) => (
-                <Card key={index} className="hover:shadow-lg transition-shadow border border-gray-200 dark:border-gray-700 shadow-md bg-white dark:bg-black">
-                  <CardHeader>
-                    <div className="flex items-center gap-3 md:gap-4 mb-4">
-                      <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-black dark:bg-white flex items-center justify-center">
-                        <feature.icon className="h-5 w-5 md:h-6 md:w-6 text-white dark:text-black" />
-                      </div>
-                      <div>
-                        <CardTitle className="text-lg md:text-xl text-black dark:text-white">{feature.title}</CardTitle>
-                        <CardDescription className="text-sm md:text-base mt-1 text-gray-600 dark:text-gray-400">
-                          {feature.description}
-                        </CardDescription>
-                      </div>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-2">
-                      {feature.features.map((item, itemIndex) => (
-                        <li key={itemIndex} className="flex items-center gap-2 text-xs md:text-sm text-gray-600 dark:text-gray-400">
-                          <div className="w-1.5 h-1.5 rounded-full bg-black dark:bg-white" />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
                   </CardContent>
                 </Card>
               ))}

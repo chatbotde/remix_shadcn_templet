@@ -13,7 +13,7 @@ import NumberFlow from "@number-flow/react";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Pricing - Buddy App" },
+    { title: "Sonicthinking" },
     { name: "description", content: "Choose the perfect plan for your AI assistant needs. Free tier available with premium features for power users." },
   ];
 };
@@ -27,7 +27,6 @@ interface PricingPlan {
   description: string;
   buttonText: string;
   href: string;
-  isPopular: boolean;
 }
 
 interface PricingProps {
@@ -39,7 +38,7 @@ interface PricingProps {
 function Pricing({
   plans,
   title = "Simple, Transparent Pricing",
-  description = "Choose the plan that works for you\nAll plans include access to our platform and dedicated support.",
+  description = "Choose the plan that works for you\nAll plans include access to premium  llm models.",
 }: PricingProps) {
   const [isMonthly, setIsMonthly] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
@@ -137,19 +136,10 @@ function Pricing({
             }}
             className={cn(
               `rounded-2xl border-[1px] p-4 sm:p-6 bg-background text-center lg:flex lg:flex-col lg:justify-center relative`,
-              plan.isPopular ? "border-primary border-2" : "border-border",
-              "flex flex-col min-h-[600px]",
-              !plan.isPopular && "mt-5"
+              "border-border",
+              "flex flex-col min-h-[600px]"
             )}
           >
-            {plan.isPopular && (
-              <div className="absolute top-0 right-0 bg-primary py-0.5 px-2 rounded-bl-xl rounded-tr-xl flex items-center">
-                <Star className="text-primary-foreground h-3 w-3 sm:h-4 sm:w-4 fill-current" />
-                <span className="text-primary-foreground ml-1 font-sans font-semibold text-xs sm:text-sm">
-                  Popular
-                </span>
-              </div>
-            )}
             <div className="flex-1 flex flex-col">
               <p className="text-sm sm:text-base font-semibold text-muted-foreground">
                 {plan.name}
@@ -204,9 +194,7 @@ function Pricing({
                   "group relative w-full gap-2 overflow-hidden text-base sm:text-lg font-semibold tracking-tighter",
                   "transform-gpu ring-offset-current transition-all duration-300 ease-out hover:ring-2 hover:ring-primary hover:ring-offset-1 hover:bg-primary hover:text-primary-foreground",
                   "disabled:opacity-50 disabled:cursor-not-allowed",
-                  plan.isPopular
-                    ? "bg-primary text-primary-foreground"
-                    : "bg-background text-foreground"
+                  "bg-background text-foreground"
                 )}
               >
                 {isLoading ? "Loading..." : plan.buttonText}
@@ -225,59 +213,47 @@ function Pricing({
 const demoPlans = [
   {
     name: "STARTER",
-    price: "50",
-    yearlyPrice: "40",
+    price: "20",
+    yearlyPrice: "16",
     period: "per month",
     features: [
-      "Up to 10 projects",
-      "Basic analytics",
-      "48-hour support response time",
-      "Limited API access",
-      "Community support",
+      "auto screen image process",
+      "auto device audio input",
+      "premium llm availble",
+      
+      
     ],
-    description: "Perfect for individuals and small projects",
+    description: "Perfect for individuals and small team",
     buttonText: "Start Free Trial",
     href: "/sign-up",
-    isPopular: false,
   },
   {
     name: "PROFESSIONAL",
-    price: "99",
-    yearlyPrice: "79",
+    price: "25",
+    yearlyPrice: "20",
     period: "per month",
     features: [
-      "Unlimited projects",
-      "Advanced analytics",
-      "24-hour support response time",
-      "Full API access",
-      "Priority support",
-      "Team collaboration",
-      "Custom integrations",
+      "new feature early access",
+      "all inlcude in starter",
+      
+     
     ],
     description: "Ideal for growing teams and businesses",
     buttonText: "Get Started",
     href: "/sign-up",
-    isPopular: true,
   },
   {
     name: "ENTERPRISE",
-    price: "299",
-    yearlyPrice: "239",
+    price: "~",
+    yearlyPrice: "~",
     period: "per month",
     features: [
-      "Everything in Professional",
-      "Custom solutions",
-      "Dedicated account manager",
-      "1-hour support response time",
-      "SSO Authentication",
-      "Advanced security",
-      "Custom contracts",
-      "SLA agreement",
+      "coming soon",
+      
     ],
     description: "For large organizations with specific needs",
     buttonText: "Contact Sales",
     href: "/contact",
-    isPopular: false,
   },
 ];
 

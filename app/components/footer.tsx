@@ -9,42 +9,18 @@ const footerLinks = {
       { name: "Pricing", href: "/pricing" },
       { name: "Enterprise", href: "/enterprise" },
       { name: "Downloads", href: "/download" },
-      { name: "Students", href: "/students" },
-    ],
-  },
-  resources: {
-    title: "Resources",
-    links: [
-      { name: "Documentation", href: "/docs" },
-      { name: "Blog", href: "/blog" },
-      { name: "Forum", href: "/forum" },
-      { name: "Changelog", href: "/changelog" },
-    ],
-  },
-  company: {
-    title: "Company",
-    links: [
-      { name: "About", href: "/about" },
-      { name: "Careers", href: "/careers" },
-      { name: "Community", href: "/community" },
-      { name: "Customers", href: "/customers" },
-    ],
-  },
-  legal: {
-    title: "Legal",
-    links: [
-      { name: "Privacy", href: "/privacy" },
-      { name: "Terms", href: "/terms" },
-      { name: "Security", href: "/security" },
+      
     ],
   },
 };
+  
+  
 
 const socialLinks = [
   { name: "GitHub", icon: Github, href: "https://github.com" },
   { name: "Twitter", icon: Twitter, href: "https://twitter.com" },
   { name: "YouTube", icon: Youtube, href: "https://youtube.com" },
-  { name: "Email", icon: Mail, href: "mailto:hi@cursor.com" },
+  
 ];
 
 export function Footer() {
@@ -92,11 +68,9 @@ export function Footer() {
           
           <div className="flex items-center space-x-4">
             <span className="text-sm text-white">
-              © 2024 Made by Anysphere. All rights reserved.
+              © 2025 Made by Sonicthinking. All rights reserved.
             </span>
-            <span className="text-sm px-2 py-1 rounded-full bg-secondary text-secondary-foreground">
-              SOC 2 Certified
-            </span>
+            
           </div>
         </div>
       </div>

@@ -37,6 +37,10 @@ export async function loader({ request }: LoaderFunctionArgs) {
   const { getTheme } = await themeSessionResolver(request);
   return {
     theme: getTheme(),
+    ENV: {
+      SUPABASE_URL: process.env.SUPABASE_URL,
+      SUPABASE_ANON_KEY: process.env.SUPABASE_ANON_KEY,
+    },
   };
 }
 
@@ -74,6 +78,11 @@ export function App() {
         <Header />
         <Outlet />
         <ScrollRestoration />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.ENV = ${JSON.stringify(data.ENV)}`,
+          }}
+        />
         <Scripts />
         <LiveReload />
       </body>
@@ -92,3 +101,5 @@ export default function AppWithProviders() {
     </ThemeProvider>
   );
 }
+
+// `

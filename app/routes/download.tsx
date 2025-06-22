@@ -88,11 +88,6 @@ export default function Download() {
       icon: Clock,
       title: "Always Ready",
       description: "24/7 AI assistance at your fingertips"
-    },
-    {
-      icon: Star,
-      title: "Free Forever",
-      description: "Core features available at no cost"
     }
   ];
 
@@ -140,18 +135,6 @@ export default function Download() {
                     <p className="mt-2">{platform.requirements}</p>
                   </div>
                   
-                  <div className="text-left">
-                    <h4 className="font-semibold text-sm text-black dark:text-white mb-2">Key Features:</h4>
-                    <ul className="space-y-1 text-xs text-gray-600 dark:text-gray-400">
-                      {platform.features.map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-center gap-2">
-                          <CheckCircle className="h-3 w-3 text-black dark:text-white" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  
                   <Button 
                     className="w-full text-lg py-6 bg-white dark:bg-black text-black dark:text-white border border-black dark:border-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black"
                     size="lg"
@@ -168,7 +151,7 @@ export default function Download() {
         {/* Benefits Section */}
         <div className="mb-16">
           <h2 className="text-3xl font-bold text-center mb-12 text-black dark:text-white">Why Choose Buddy?</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {benefits.map((benefit, index) => (
               <Card key={index} className="text-center hover:shadow-lg transition-shadow border border-gray-200 dark:border-gray-700 shadow-md bg-white dark:bg-black">
                 <CardHeader>
@@ -185,91 +168,6 @@ export default function Download() {
               </Card>
             ))}
           </div>
-        </div>
-
-        {/* System Requirements */}
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold text-center mb-12 text-black dark:text-white">System Requirements</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <Card className="border border-gray-200 dark:border-gray-700 shadow-lg bg-white dark:bg-black">
-              <CardHeader>
-                <CardTitle className="text-xl flex items-center gap-2 text-black dark:text-white">
-                  <CheckCircle className="h-5 w-5 text-black dark:text-white" />
-                  Minimum Requirements
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-                  <li>• 4GB RAM</li>
-                  <li>• 2GB free disk space</li>
-                  <li>• 1.5GHz dual-core processor</li>
-                  <li>• Internet connection (for initial setup)</li>
-                  <li>• Windows 10, macOS 11, or Ubuntu 20.04+</li>
-                </ul>
-              </CardContent>
-            </Card>
-            
-            <Card className="border border-gray-200 dark:border-gray-700 shadow-lg bg-white dark:bg-black">
-              <CardHeader>
-                <CardTitle className="text-xl flex items-center gap-2 text-black dark:text-white">
-                  <Zap className="h-5 w-5 text-black dark:text-white" />
-                  Recommended
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-                  <li>• 8GB RAM</li>
-                  <li>• 5GB free disk space</li>
-                  <li>• 2.5GHz quad-core processor</li>
-                  <li>• High-speed internet connection</li>
-                  <li>• Latest OS version</li>
-                </ul>
-              </CardContent>
-            </Card>
-            
-            <Card className="border border-gray-200 dark:border-gray-700 shadow-lg bg-white dark:bg-black">
-              <CardHeader>
-                <CardTitle className="text-xl flex items-center gap-2 text-black dark:text-white">
-                  <Shield className="h-5 w-5 text-black dark:text-white" />
-                  Security & Privacy
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-                  <li>• Local AI processing</li>
-                  <li>• End-to-end encryption</li>
-                  <li>• No data collection</li>
-                  <li>• GDPR compliant</li>
-                  <li>• Open source components</li>
-                </ul>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-
-        {/* CTA Section */}
-        <div className="text-center">
-          <Card className="border border-gray-200 dark:border-gray-700 shadow-xl bg-gray-50 dark:bg-gray-900">
-            <CardContent className="pt-8">
-              <h3 className="text-2xl font-bold mb-4 text-black dark:text-white">Ready to be Extraordinarily Productive?</h3>
-              <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-2xl mx-auto">
-                Join thousands of users who have already transformed their productivity with intelligent AI assistance.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" className="bg-black dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 text-lg px-8 py-6">
-                  <DownloadIcon className="mr-2 h-5 w-5" />
-                  Download Now
-                </Button>
-                <Button variant="outline" size="lg" className="text-lg px-8 py-6 border-black dark:border-white text-black dark:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black">
-                  Learn More
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </div>
-              <p className="text-sm text-gray-500 dark:text-gray-400 mt-4">
-                Free download • No credit card required • Works offline
-              </p>
-            </CardContent>
-          </Card>
         </div>
       </div>
     </div>

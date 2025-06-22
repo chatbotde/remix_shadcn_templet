@@ -13,8 +13,7 @@ import {
   Brain,
   ArrowRight,
   CheckCircle,
-  Users,
-  Star
+  Users
 } from "lucide-react";
 import { Link } from "@remix-run/react";
 
@@ -44,27 +43,6 @@ export default function Index() {
       icon: MessageSquare,
       title: "Extraordinarily Productive",
       description: "Boost your productivity with intelligent automation"
-    }
-  ];
-
-  const testimonials = [
-    {
-      name: "Sarah Johnson",
-      role: "Product Manager",
-      content: "Buddy has transformed how I work. It's like having a brilliant assistant always ready to help.",
-      rating: 5
-    },
-    {
-      name: "Mike Chen",
-      role: "Developer",
-      content: "The natural language interface makes it so easy to get help. I can ask anything and get instant answers.",
-      rating: 5
-    },
-    {
-      name: "Emily Rodriguez",
-      role: "Student",
-      content: "Buddy helps me learn faster and stay organized. It's become an essential part of my daily routine.",
-      rating: 5
     }
   ];
 
@@ -146,36 +124,6 @@ export default function Index() {
           </div>
         </section>
 
-        {/* Testimonials Section */}
-        <section className="py-16 px-4">
-          <div className="container mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black dark:text-white">What Users Say</h2>
-              <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-                Join thousands of satisfied users who have transformed their productivity with Buddy.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {testimonials.map((testimonial, index) => (
-                <Card key={index} className="border border-gray-200 dark:border-gray-700 shadow-lg bg-white dark:bg-black">
-                  <CardContent className="pt-6">
-                    <div className="flex items-center gap-1 mb-4">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="h-4 w-4 fill-black dark:fill-white text-black dark:text-white" />
-                      ))}
-                    </div>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">"{testimonial.content}"</p>
-                    <div>
-                      <p className="font-semibold text-sm text-black dark:text-white">{testimonial.name}</p>
-                      <p className="text-xs text-gray-600 dark:text-gray-400">{testimonial.role}</p>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* CTA Section */}
         <section className="py-16 px-4 bg-gray-50 dark:bg-gray-900">
           <div className="container mx-auto text-center">
@@ -190,7 +138,7 @@ export default function Index() {
               </Link>
             </Button>
             <p className="text-sm text-gray-600 dark:text-gray-400 mt-4">
-              Available for Windows, macOS, and Linux • Free to try • No credit card required
+              Available for Windows, macOS, and Linux 
             </p>
           </div>
         </section>
