@@ -27,6 +27,7 @@ interface PricingPlan {
   description: string;
   buttonText: string;
   href: string;
+  featured?: boolean;
 }
 
 interface PricingProps {
@@ -137,7 +138,8 @@ function Pricing({
             className={cn(
               `rounded-2xl border-[1px] p-4 sm:p-6 bg-background text-center lg:flex lg:flex-col lg:justify-center relative`,
               "border-border",
-              "flex flex-col min-h-[600px]"
+              "flex flex-col min-h-[600px]",
+              plan.featured && "bg-green-50 border-green-200"
             )}
           >
             <div className="flex-1 flex flex-col">
@@ -189,12 +191,15 @@ function Pricing({
                 onClick={() => handlePlanClick(plan.href)}
                 className={cn(
                   buttonVariants({
-                    variant: "outline",
+                    variant: plan.featured ? "default" : "outline",
                   }),
                   "group relative w-full gap-2 overflow-hidden text-base sm:text-lg font-semibold tracking-tighter",
-                  "transform-gpu ring-offset-current transition-all duration-300 ease-out hover:ring-2 hover:ring-primary hover:ring-offset-1 hover:bg-primary hover:text-primary-foreground",
+                  "transform-gpu ring-offset-current transition-all duration-300 ease-out hover:ring-2 hover:ring-primary hover:ring-offset-1",
                   "disabled:opacity-50 disabled:cursor-not-allowed",
-                  "bg-background text-foreground"
+                  {
+                    "hover:bg-primary hover:text-primary-foreground": !plan.featured,
+                    "bg-background text-foreground": !plan.featured,
+                  }
                 )}
               >
                 {isLoading ? "Loading..." : plan.buttonText}
@@ -241,6 +246,7 @@ const demoPlans = [
     description: "Ideal for growing teams and businesses",
     buttonText: "Get Started",
     href: "/sign-up",
+    featured: true,
   },
   {
     name: "ENTERPRISE",

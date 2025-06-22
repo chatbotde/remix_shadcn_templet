@@ -19,7 +19,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
   }
 
   // return the user to an error page with instructions
-  return redirect('/auth/auth-error', {
+  return redirect('/', {
     headers: response.headers,
   })
 } 
